@@ -2,7 +2,7 @@
   "name": "mustrecruit",
   "version": "1.0.0",
   "module": "module",
-  "main": "src/src/index.ts",
+  "main": "dist/src/index.ts",
   "engines": {
     "node": ">=18.0.0"
   },
