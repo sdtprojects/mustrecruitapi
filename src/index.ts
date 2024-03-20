@@ -8,15 +8,18 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
-import routes from "./routes";
 import multer from "multer";
 import multerS3 from "multer-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 import { S3 } from "aws-sdk";
+import usersRoute from "./routes/usersRoute";
+import listingRoute from "./routes/jobListingRoutes";
+import applicationsRoute from "./routes/applicationRoutes";
+import notificationsRoute from "./routes/notificationRoute";
 
 app.use(express.json());
 dotenv.config();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: ["*"] }));
 app.use(morgan("common"));
 app.use(helmet());
 
@@ -96,7 +99,11 @@ app.use("/image/:key", async (req, res) => {
   res.status(200).json(image);
 });
 
-app.use("/api/v1/", routes());
+// other app routes
+app.use("/api/v1/users/", usersRoute);
+app.use("/api/v1/listings/", listingRoute);
+app.use("/api/v1/applications/", applicationsRoute);
+app.use("/api/v1/notifications/", notificationsRoute);
 
 // Start express server
 const PORT = process.env.PORT || 8200;

@@ -38,11 +38,6 @@ const UserModel = new mongoose.Schema(
       required: true,
     },
 
-    sub_county: {
-      type: String,
-      required: true,
-    },
-
     police_station: {
       type: String,
       required: true,
