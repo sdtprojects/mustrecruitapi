@@ -38,11 +38,6 @@ const UserModel = new mongoose.Schema(
       required: true,
     },
 
-    police_station: {
-      type: String,
-      required: true,
-    },
-
     position: {
       type: String,
       required: true,
