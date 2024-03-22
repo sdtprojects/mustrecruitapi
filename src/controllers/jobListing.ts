@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import JobListing from "../models/JobListing";
+import { JobListing } from "../models/JobListing";
 
 // CREATE - Create a new job listing
 export const createJobListing = async (req: Request, res: Response) => {

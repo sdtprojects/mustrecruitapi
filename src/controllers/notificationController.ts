@@ -35,6 +35,18 @@ export const getNotificationById = async (req: Request, res: Response) => {
   }
 };
 
+// READ - Get users notifications by user ID
+export const getUSerNotifications = async (req: Request, res: Response) => {
+  try {
+    const notifications = await Notification.find({
+      recipientId: req.params.userId,
+    });
+    res.status(200).json(notifications);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // UPDATE - Update a notification
 export const updateNotification = async (req: Request, res: Response) => {
   try {

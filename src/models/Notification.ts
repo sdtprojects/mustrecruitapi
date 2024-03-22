@@ -9,11 +9,14 @@ interface INotification extends Document {
 }
 
 // Define schema for the Notification document
-const NotificationSchema = new Schema<INotification>({
-  recipientId: { type: String, required: true },
-  senderId: { type: String, required: true },
-  message: { type: String, required: true },
-});
+const NotificationSchema = new Schema<INotification>(
+  {
+    recipientId: { type: String, required: true },
+    senderId: { type: String, required: true },
+    message: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
 // Create and export the Notification model
 const Notification = mongoose.model<INotification>(
