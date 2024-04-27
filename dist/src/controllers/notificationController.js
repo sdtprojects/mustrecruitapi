@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteNotification = exports.updateNotification = exports.getNotificationById = exports.getAllNotifications = exports.createNotification = void 0;
+exports.deleteNotification = exports.updateNotification = exports.getUSerNotifications = exports.getNotificationById = exports.getAllNotifications = exports.createNotification = void 0;
 const Notification_1 = __importDefault(require("../models/Notification"));
 // CREATE - Create a new notification
 const createNotification = async (req, res) => {
@@ -42,6 +42,19 @@ const getNotificationById = async (req, res) => {
     }
 };
 exports.getNotificationById = getNotificationById;
+// READ - Get users notifications by user ID
+const getUSerNotifications = async (req, res) => {
+    try {
+        const notifications = await Notification_1.default.find({
+            recipientId: req.params.userId,
+        });
+        res.status(200).json(notifications);
+    }
+    catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+exports.getUSerNotifications = getUSerNotifications;
 // UPDATE - Update a notification
 const updateNotification = async (req, res) => {
     try {

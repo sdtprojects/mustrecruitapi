@@ -30,7 +30,7 @@ const NotificationSchema = new mongoose_1.Schema({
     recipientId: { type: String, required: true },
     senderId: { type: String, required: true },
     message: { type: String, required: true },
-});
+}, { timestamps: true });
 // Create and export the Notification model
 const Notification = mongoose_1.default.model("Notification", NotificationSchema);
 exports.default = Notification;

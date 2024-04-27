@@ -5,6 +5,7 @@ import {
   getApplicationById,
   updateApplication,
   deleteApplication,
+  getApplicationByRefAndNIN,
 } from "../controllers/applicationController";
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.get("/", getAllApplications);
 
 // Get a single application by ID
 router.get("/:id", getApplicationById);
+router.get("/findbyrefandnin/:job_ref/:nin_number", getApplicationByRefAndNIN);
 
 // Update an application
 router.put("/:id", updateApplication);

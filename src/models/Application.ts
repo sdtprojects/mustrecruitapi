@@ -19,6 +19,7 @@ interface IApplication extends Document {
   national_id_backface: string;
   documents: AcademicDocument[];
   post_title: string;
+  isApproved: boolean;
   job_ref: string;
   progress: {
     step: String; // submitted - 25%, underreview - 50%, rejected/approved - 75% hired - 100%
@@ -45,6 +46,7 @@ const ApplicationSchema = new Schema<IApplication>(
     nin_number: { type: String, required: true },
     post_title: { type: String, required: true },
     job_ref: { type: String, required: true },
+    isApproved: { type: Boolean, default: false },
     documents: { type: [AcademicDocumentSchema] },
   },
   { timestamps: true }

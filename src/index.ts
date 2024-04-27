@@ -106,7 +106,7 @@ app.use("/api/v1/applications/", applicationsRoute);
 app.use("/api/v1/notifications/", notificationsRoute);
 
 // Start express server
-const PORT = process.env.PORT || 8200;
+const PORT = process.env.PORT || 8900;
 app.listen(PORT, () => {
   console.log(`Backend server is running at port ${PORT}`);
 });

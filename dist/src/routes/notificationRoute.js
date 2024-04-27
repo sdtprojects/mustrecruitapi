@@ -10,6 +10,8 @@ const router = express_1.default.Router();
 router.post("/", notificationController_1.createNotification);
 // Get all notifications
 router.get("/", notificationController_1.getAllNotifications);
+// Get a users notifications
+router.get("/user/:userId", notificationController_1.getUSerNotifications);
 // Get a single notification by ID
 router.get("/:id", notificationController_1.getNotificationById);
 // Update a notification

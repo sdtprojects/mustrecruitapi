@@ -27,22 +27,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 // Define schema for the AcademicDocument subdocument
 const AcademicDocumentSchema = new mongoose_1.Schema({
-    qualification: { type: String, required: true },
-    institution: { type: String, required: true },
-    grade: { type: String, required: true },
-    year: { type: String, required: true },
+    document_desc: { type: String, required: true },
+    level_of_education: { type: String, required: true },
     document_file: { type: String, required: true },
+    file_name: { type: String, required: true },
 });
 // Define schema for the Application document
 const ApplicationSchema = new mongoose_1.Schema({
     fullname: { type: String, required: true },
+    email: { type: String, required: true },
     phone_number: { type: String, required: true },
     national_id_fontface: { type: String },
     national_id_backface: { type: String },
-    username: { type: String, required: true },
     nin_number: { type: String, required: true },
-    academic_documents: { type: [AcademicDocumentSchema] },
-});
+    post_title: { type: String, required: true },
+    job_ref: { type: String, required: true },
+    documents: { type: [AcademicDocumentSchema] },
+}, { timestamps: true });
 // Create and export the Application model
 const Application = mongoose_1.default.model("Application", ApplicationSchema);
 exports.default = Application;
