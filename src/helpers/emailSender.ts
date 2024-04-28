@@ -28,7 +28,7 @@ export const sendEmail = async (
       secure: false, // true for 465, false for other ports
       auth: {
         type: process.env.TYPE,
-        user: "pandoraofficesoftware@gmail.com",
+        user: "mustrecruit10@gmail.com",
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
